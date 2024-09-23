@@ -1,8 +1,17 @@
 // Variables
 
-$bodyBg:         #ffffff;
-$bodyColor:      #333333;
+$white:          #ffffff;
+$pink:           #ee7a7a;
+$red:            #ed6a1f;
+$yellow:         #f5fd24;
+$blue:           #7ebfd8;
+$black:          #333333;
 
-$breakpointSm:   600px;
-$breakpointMd:   900px;
-$breakpointLg:   1200px;
+$bodyBg:         $white;
+$bodyColor:      $pink;
+
+$breakpointSm:   630px;
+$breakpointLg:   1260px;
+
+$fontFamilyBase: "Zen Maru Gothic", serif;
+$fontFamilyFAQ:  "Roboto", sans-serif;
