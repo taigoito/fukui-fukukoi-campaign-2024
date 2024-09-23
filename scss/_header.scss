@@ -1,0 +1,68 @@
+/**
+ * Header
+ */
+
+.header {
+  width: 100%;
+  aspect-ratio: 0.4;
+  padding: 0.75rem 6rem;
+
+  @media (min-width: $breakpointSm) {
+    aspect-ratio: 1.33;
+  }
+
+  &__title {
+    color: $pink;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  &__maintitle {
+    display: inline-block;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    font-size: 0.65rem;
+    vertical-align: middle;
+  }
+
+  &__button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 24rem;
+    height: 3rem;
+    margin: auto;
+    border: 2px solid $pink;
+    border-radius: 1.5rem;
+    background-color: $white;
+    color: $pink;
+    font-size: 1.125rem;
+    line-height: 3rem;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      background-color: $pink;
+      color: $white;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 1.125rem;
+      bottom: 0;
+      width: 1.125rem;
+      height: 1.125rem;
+      margin: auto;
+      border-radius: 50%;
+      background: url("./assets/chevron-down.svg") no-repeat center center / contain scroll;
+    }
+  }
+}

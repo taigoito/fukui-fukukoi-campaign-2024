@@ -6,6 +6,38 @@
   padding: 3rem 0;
 }
 
+%__heading {
+  margin: 2.25rem 0;
+  text-align: center;
+}
+
+%__headingInner {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+  color: $black;
+  font-weight: 700;
+  font-size: 2.25rem;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 6px;
+    bottom: 0;
+  }
+
+  &::before {
+    left: 0;
+    background-color: $red;
+  }
+
+  &::after {
+    right: 0;
+    background-color: $blue;
+  }
+}
+
 %__inner {
   width: min(100%, 63rem); // 1260px 左右30pxずつpaddingで、内寸1200px
   margin: auto;

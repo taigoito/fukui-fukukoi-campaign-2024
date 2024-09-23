@@ -1,0 +1,136 @@
+/**
+ * Intro
+ */
+
+.intro {
+  @extend %__section;
+  width: 100%;
+  aspect-ratio: 0.875;
+  background: url("./assets/bg_00.jpg") no-repeat center center / cover scroll;
+
+  &__heading {
+    @extend %__heading;
+  }
+
+  &__headingInner {
+    @extend %__headingInner;
+  }
+
+  &__decorated {
+    font-size: 1.5rem;
+
+    &::before {
+      content: "\\";
+      font-size: 2.25rem;
+    }
+
+    &::after {
+      content: "/";
+      font-size: 2.25rem;
+    }
+  }
+
+  &__inner {
+    @extend %__inner;
+  }
+
+  &__worries {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    &.--num_1 {
+      flex-flow: row wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    &.--num_2 {
+      flex-flow: row-reverse wrap;
+    }
+  }
+
+  &__illust {
+    &.--num_1 {
+      flex: 0 1 30%;
+    }
+
+    &.--num_2 {
+      flex: 0 1 25%;
+    }
+  }
+
+  &__text {
+    position: relative;
+    flex: 0 0 24rem;
+    padding: 1.5rem;
+    border-radius: 6px;
+    background-color: $white;
+
+    &.--num_1::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -3rem;
+      margin-top: 1.5rem;
+      border: 1.5rem solid transparent;
+      border-right: 3rem solid $white;
+    }
+
+    &.--num_2::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -3rem;
+      margin-top: 1.5rem;
+      border: 1.5rem solid transparent;
+      border-left: 3rem solid $white;
+    }
+  }
+
+  &__largeText {
+    font-size: 1.2rem;
+  }
+
+  &__smallText {
+    font-size: 0.8rem;
+  }
+
+  &__campaign {
+    height: 7.5rem;
+    margin-top: -0.75rem;
+    padding-top: 2.025rem;
+    background: url("./assets/textPickUp.svg") no-repeat 50% 50%;
+    background-size: auto 7.5rem;
+    color: $pink;
+    text-align: center;
+  }
+
+  &__campaignSmall {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
+  &__campaignLarge {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  &__em {
+    position: relative;
+    z-index: 0;
+    font-style: normal;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+      width: 6em;
+      height: 0.5em;
+      background-color: $yellow;
+    }
+  }
+}
