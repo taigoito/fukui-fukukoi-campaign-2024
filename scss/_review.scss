@@ -1,0 +1,99 @@
+/**
+ * Review
+ */
+
+.review {
+  @extend %__section;
+  display: none;
+
+  @media (min-width: $breakpointSm) {
+    display: block;
+    margin-top: 6rem;
+  }
+
+  &__inner {
+    @extend %__inner;
+  }
+
+  &__heading {
+    @extend %__heading;
+  }
+
+  &__headingInner {
+    @extend %__headingInner;
+  }
+
+  &__case {
+    position: relative;
+    width: 87.5%;
+    margin-bottom: 3rem;
+    padding: 0.75rem 0 1.5rem;
+    border: 1px solid $blue;
+
+    @at-root .review__case:nth-of-type(even) {
+      margin-left: 12.5%;
+      border-color: $red;
+    }
+  }
+
+  &__num {
+    position: absolute;
+    top: -0.75rem;
+    left: 6rem;
+    width: 6rem;
+    background-color: $white;
+  }
+
+  &__caseInner {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+
+  &__featured {
+    flex: 0 0 30%;
+  }
+
+  &__image {
+    display: block;
+    width: 9rem;
+    margin: 0 auto;
+  }
+  
+  &__desc {
+    width: 15rem;
+    height: 1.8rem;
+    margin: auto;
+    border: 1px solid $blue;
+    border-radius: 0.9rem;
+    color: $blue;
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.6rem;
+
+    @at-root .review__case:nth-of-type(even) & {
+      border-color: $red;
+      color: $red;
+    }
+  }
+
+  &__voice {
+    flex: 0 0 40%;
+    color: $blue;
+    line-height: 1.8;
+
+    @at-root .review__case:nth-of-type(even) & {
+      color: $red;
+    }
+  }
+
+  &__content {
+    font-size: 0.75rem;
+    text-align: justify;
+  }
+
+  &__amount {
+    flex: 0 0 15%;
+  }
+}
