@@ -26,16 +26,16 @@
   }
 
   &__decorated {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
 
     &::before {
       content: "\\";
-      font-size: 2.25rem;
+      font-size: 3rem;
     }
 
     &::after {
       content: "/";
-      font-size: 2.25rem;
+      font-size: 3rem;
     }
   }
 

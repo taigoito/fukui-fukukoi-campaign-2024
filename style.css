@@ -92,7 +92,7 @@ button, input, select, textarea {
 }
 
 .area__heading, .review__heading, .project__heading, .intro__heading {
-  margin: 2.25rem 0;
+  margin: 3rem 0;
   text-align: center;
 }
 
@@ -102,7 +102,7 @@ button, input, select, textarea {
   padding-bottom: 1rem;
   color: #595757;
   font-weight: 700;
-  font-size: 2.25rem;
+  font-size: 3rem;
 }
 .area__headingInner::before, .review__headingInner::before, .project__headingInner::before, .intro__headingInner::before, .area__headingInner::after, .review__headingInner::after, .project__headingInner::after, .intro__headingInner::after {
   content: "";
@@ -292,15 +292,15 @@ button, input, select, textarea {
   }
 }
 .intro__decorated {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
 }
 .intro__decorated::before {
   content: "\\";
-  font-size: 2.25rem;
+  font-size: 3rem;
 }
 .intro__decorated::after {
   content: "/";
-  font-size: 2.25rem;
+  font-size: 3rem;
 }
 .intro__worries {
   display: flex;
@@ -424,8 +424,8 @@ button, input, select, textarea {
 }
 .project__headingInner img {
   display: inline-block;
-  width: 4.5rem;
-  margin-top: -0.5rem;
+  width: 6rem;
+  margin-top: -1.125rem;
   margin-right: 0.75rem;
 }
 .project__target {
@@ -462,7 +462,7 @@ button, input, select, textarea {
 }
 .project__amount {
   position: absolute;
-  top: 9rem;
+  top: 10.5rem;
   right: 6rem;
   z-index: 20;
   width: 9rem;
