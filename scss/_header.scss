@@ -3,18 +3,76 @@
  */
 
 .header {
+  position: relative;
   width: 100%;
   aspect-ratio: 0.4;
-  padding: 0.75rem 6rem;
+  background: url("./assets/bg_mb.jpg") no-repeat center center / cover scroll;
 
   @media (min-width: $breakpointSm) {
-    aspect-ratio: 1.33;
+    aspect-ratio: 1.6;
+    background-image: url("./assets/bg_main.jpg");
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      aspect-ratio: 20;
+      background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
+    }
+  
+    &::before {
+      top: -1px;
+      left: 0;
+      transform: rotate(180deg);
+    }
+  
+    &::after {
+      right: 0;
+      bottom: -1px;
+    }
+  }
+
+  &__mainVisual {
+    display: none;
+
+    @media (min-width: $breakpointSm) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      height: calc(100% - 6rem);
+      margin: auto;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: auto;
+
+      @media (min-width: $breakpointLg) {
+        width: auto;
+        height: 100%;
+      }
+    }
   }
 
   &__title {
-    color: $pink;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
+    display: none;
+
+    @media (min-width: $breakpointSm) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      padding: 0.75rem 6rem;
+      color: $pink;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+    }
   }
 
   &__maintitle {
@@ -31,9 +89,10 @@
 
   &__button {
     position: absolute;
+    top: calc(100% + 1.5rem);
     left: 0;
     right: 0;
-    bottom: 0;
+    z-index: 10;
     display: block;
     width: 24rem;
     height: 3rem;

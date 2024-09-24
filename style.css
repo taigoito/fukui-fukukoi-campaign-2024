@@ -56,6 +56,27 @@ button, input, select, textarea {
   padding: 3rem 0;
 }
 
+.intro {
+  position: relative;
+  background: url("./assets/bg_sub.jpg") no-repeat center center/cover scroll;
+}
+.intro::before, .intro::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 20;
+  background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
+}
+.intro::before {
+  top: -1px;
+  left: 0;
+  transform: rotate(180deg);
+}
+.intro::after {
+  right: 0;
+  bottom: -1px;
+}
+
 .intro__heading {
   margin: 2.25rem 0;
   text-align: center;
@@ -95,19 +116,75 @@ button, input, select, textarea {
  * Header
  */
 .header {
+  position: relative;
   width: 100%;
   aspect-ratio: 0.4;
-  padding: 0.75rem 6rem;
+  background: url("./assets/bg_mb.jpg") no-repeat center center/cover scroll;
 }
 @media (min-width: 840px) {
   .header {
-    aspect-ratio: 1.33;
+    aspect-ratio: 1.6;
+    background-image: url("./assets/bg_main.jpg");
+  }
+  .header::before, .header::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 20;
+    background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
+  }
+  .header::before {
+    top: -1px;
+    left: 0;
+    transform: rotate(180deg);
+  }
+  .header::after {
+    right: 0;
+    bottom: -1px;
+  }
+}
+.header__mainVisual {
+  display: none;
+}
+@media (min-width: 840px) {
+  .header__mainVisual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: calc(100% - 6rem);
+    margin: auto;
+  }
+}
+.header__mainVisual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+@media (min-width: 1260px) {
+  .header__mainVisual img {
+    width: auto;
+    height: 100%;
   }
 }
 .header__title {
-  color: #ee7a7a;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
+  display: none;
+}
+@media (min-width: 840px) {
+  .header__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding: 0.75rem 6rem;
+    color: #ee7a7a;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
 }
 .header__maintitle {
   display: inline-block;
@@ -121,9 +198,10 @@ button, input, select, textarea {
 }
 .header__button {
   position: absolute;
+  top: calc(100% + 1.5rem);
   left: 0;
   right: 0;
-  bottom: 0;
+  z-index: 10;
   display: block;
   width: 24rem;
   height: 3rem;
@@ -155,40 +233,17 @@ button, input, select, textarea {
 }
 
 /**
- * Main Visual
- */
-.cover.--mainVisual, .header.--mainVisual {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  aspect-ratio: 0.4;
-  background: url("./assets/bg_mb.jpg") no-repeat center center/cover scroll;
-}
-@media (min-width: 840px) {
-  .cover.--mainVisual, .header.--mainVisual {
-    aspect-ratio: 1.33;
-    background-image: url("./assets/bg_main.jpg");
-  }
-}
-
-.header.--mainVisual {
-  position: relative;
-  z-index: 1;
-}
-
-.cover.--mainVisual {
-  position: fixed;
-  z-index: -1;
-}
-
-/**
  * Intro
  */
 .intro {
-  width: 100%;
-  aspect-ratio: 0.875;
-  background: url("./assets/bg_00.jpg") no-repeat center center/cover scroll;
+  display: none;
+}
+@media (min-width: 840px) {
+  .intro {
+    display: block;
+    width: 100%;
+    margin-top: 6rem;
+  }
 }
 .intro__decorated {
   font-size: 1.5rem;
@@ -223,7 +278,7 @@ button, input, select, textarea {
 .intro__text {
   position: relative;
   flex: 0 0 24rem;
-  padding: 1.5rem;
+  padding: 0.75rem 1.5rem 1.5rem;
   border-radius: 6px;
   background-color: #ffffff;
 }
@@ -251,20 +306,21 @@ button, input, select, textarea {
 .intro__smallText {
   font-size: 0.8rem;
 }
-.intro__campaign {
+.intro__pickup {
   height: 7.5rem;
   margin-top: -0.75rem;
+  margin-bottom: 3rem;
   padding-top: 2.025rem;
   background: url("./assets/textPickUp.svg") no-repeat 50% 50%;
   background-size: auto 7.5rem;
   color: #ee7a7a;
   text-align: center;
 }
-.intro__campaignSmall {
+.intro__pickupSmall {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
-.intro__campaignLarge {
+.intro__pickupLarge {
   margin: 0;
   font-weight: 700;
   font-size: 1.5rem;
@@ -283,4 +339,14 @@ button, input, select, textarea {
   width: 6em;
   height: 0.5em;
   background-color: #f5fd24;
+}
+.intro__catch {
+  position: absolute;
+  top: calc(100% + 1.5rem);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  width: 24rem;
+  margin: auto;
 }

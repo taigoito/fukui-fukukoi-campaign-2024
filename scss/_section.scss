@@ -6,6 +6,30 @@
   padding: 3rem 0;
 }
 
+%__cover {
+  position: relative;
+  background: url("./assets/bg_sub.jpg") no-repeat center center / cover scroll;
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 20;
+    background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
+  }
+
+  &::before {
+    top: -1px;
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  &::after {
+    right: 0;
+    bottom: -1px;
+  }
+}
+
 %__heading {
   margin: 2.25rem 0;
   text-align: center;

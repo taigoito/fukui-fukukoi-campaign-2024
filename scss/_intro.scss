@@ -4,9 +4,14 @@
 
 .intro {
   @extend %__section;
-  width: 100%;
-  aspect-ratio: 0.875;
-  background: url("./assets/bg_00.jpg") no-repeat center center / cover scroll;
+  @extend %__cover;
+  display: none;
+
+  @media (min-width: $breakpointSm) {
+    display: block;
+    width: 100%;
+    margin-top: 6rem;
+  }
 
   &__heading {
     @extend %__heading;
@@ -63,7 +68,7 @@
   &__text {
     position: relative;
     flex: 0 0 24rem;
-    padding: 1.5rem;
+    padding: 0.75rem 1.5rem 1.5rem;
     border-radius: 6px;
     background-color: $white;
 
@@ -96,9 +101,10 @@
     font-size: 0.8rem;
   }
 
-  &__campaign {
+  &__pickup {
     height: 7.5rem;
     margin-top: -0.75rem;
+    margin-bottom: 3rem;
     padding-top: 2.025rem;
     background: url("./assets/textPickUp.svg") no-repeat 50% 50%;
     background-size: auto 7.5rem;
@@ -106,12 +112,12 @@
     text-align: center;
   }
 
-  &__campaignSmall {
+  &__pickupSmall {
     margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
-  &__campaignLarge {
+  &__pickupLarge {
     margin: 0;
     font-weight: 700;
     font-size: 1.5rem;
@@ -132,5 +138,16 @@
       height: 0.5em;
       background-color: $yellow;
     }
+  }
+
+  &__catch {
+    position: absolute;
+    top: calc(100% + 1.5rem);
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: block;
+    width: 24rem;
+    margin: auto;
   }
 }
