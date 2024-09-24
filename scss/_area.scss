@@ -1,0 +1,64 @@
+/**
+ * Area
+ */
+
+.area {
+  @extend %__section;
+  @extend %__cover;
+
+  @media (max-width: $breakpointSm - 0.1) {
+    margin-top: 6rem;
+    padding-top: 6rem;
+  }
+
+  &__inner {
+    @extend %__inner;
+  }
+
+  &__heading {
+    @extend %__heading;
+  }
+
+  &__headingInner {
+    @extend %__headingInner;
+  }
+
+  &__map {
+    display: none;
+    margin: auto;
+    
+    @media (max-width: $breakpointSm - 0.1) {
+      &.--mb {
+        display: block;
+        width: min(100%, 20rem);
+      }
+    }
+    
+    @media (min-width: $breakpointSm) {
+      &.--lg {
+        display: block;
+        width: min(100%, 48rem);
+      }
+    }
+  
+    svg {
+      .cls-1 {
+        fill: $white;
+        transition: all 0.25s ease-in-out;
+
+        @at-root .cls-0:hover .cls-1 {
+          fill: $pink;
+        }
+      }
+
+      .cls-2 {
+        fill: $black;
+        transition: all 0.25s ease-in-out;
+
+        @at-root .cls-0:hover .cls-2 {
+          fill: $white;
+        }
+      }
+    }
+  }
+}

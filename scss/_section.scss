@@ -10,6 +10,11 @@
 %__cover {
   background: url("./assets/bg_sub.jpg") no-repeat center center / cover scroll;
 
+  @media (max-width: $breakpointSm - 0.1) {
+    aspect-ratio: 0.4;
+    background: url("./assets/bg_mb_sub.png") no-repeat center center / cover scroll;
+  }
+
   &::before, &::after {
     content: "";
     position: absolute;

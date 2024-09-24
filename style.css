@@ -52,44 +52,50 @@ button, input, select, textarea {
 /**
  * Section
  */
-.review, .project, .intro {
+.area, .review, .project, .intro {
   position: relative;
   padding: 3rem 0;
 }
 
-.project, .intro {
+.area, .project, .intro {
   background: url("./assets/bg_sub.jpg") no-repeat center center/cover scroll;
 }
-.project::before, .intro::before, .project::after, .intro::after {
+@media (max-width: 839.9px) {
+  .area, .project, .intro {
+    aspect-ratio: 0.4;
+    background: url("./assets/bg_mb_sub.png") no-repeat center center/cover scroll;
+  }
+}
+.area::before, .project::before, .intro::before, .area::after, .project::after, .intro::after {
   content: "";
   position: absolute;
   width: 100%;
   aspect-ratio: 20;
   background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
 }
-.project::before, .intro::before {
+.area::before, .project::before, .intro::before {
   top: -1px;
   left: 0;
   transform: rotate(180deg);
 }
-.project::after, .intro::after {
+.area::after, .project::after, .intro::after {
   right: 0;
   bottom: -1px;
 }
 
-.review__inner, .project__inner, .intro__inner {
+.area__inner, .review__inner, .project__inner, .intro__inner {
   position: relative;
   width: min(100%, 63rem);
   margin: auto;
   padding: 0 clamp(0.75rem, 2.5%, 1.5rem) 3rem;
 }
 
-.review__heading, .project__heading, .intro__heading {
+.area__heading, .review__heading, .project__heading, .intro__heading {
   margin: 2.25rem 0;
   text-align: center;
 }
 
-.review__headingInner, .project__headingInner, .intro__headingInner {
+.area__headingInner, .review__headingInner, .project__headingInner, .intro__headingInner {
   position: relative;
   display: inline-block;
   padding-bottom: 1rem;
@@ -97,18 +103,18 @@ button, input, select, textarea {
   font-weight: 700;
   font-size: 2.25rem;
 }
-.review__headingInner::before, .project__headingInner::before, .intro__headingInner::before, .review__headingInner::after, .project__headingInner::after, .intro__headingInner::after {
+.area__headingInner::before, .review__headingInner::before, .project__headingInner::before, .intro__headingInner::before, .area__headingInner::after, .review__headingInner::after, .project__headingInner::after, .intro__headingInner::after {
   content: "";
   position: absolute;
   width: 50%;
   height: 6px;
   bottom: 0;
 }
-.review__headingInner::before, .project__headingInner::before, .intro__headingInner::before {
+.area__headingInner::before, .review__headingInner::before, .project__headingInner::before, .intro__headingInner::before {
   left: 0;
   background-color: #ed6a1f;
 }
-.review__headingInner::after, .project__headingInner::after, .intro__headingInner::after {
+.area__headingInner::after, .review__headingInner::after, .project__headingInner::after, .intro__headingInner::after {
   right: 0;
   background-color: #7ebfd8;
 }
@@ -204,7 +210,7 @@ button, input, select, textarea {
   right: 0;
   z-index: 10;
   display: block;
-  width: 24rem;
+  width: min(87.5%, 24rem);
   height: 3rem;
   margin: auto;
   border: 2px solid #ee7a7a;
@@ -577,4 +583,45 @@ button, input, select, textarea {
 }
 .review__amount {
   flex: 0 0 15%;
+}
+
+/**
+ * Area
+ */
+@media (max-width: 839.9px) {
+  .area {
+    margin-top: 6rem;
+    padding-top: 6rem;
+  }
+}
+.area__map {
+  display: none;
+  margin: auto;
+}
+@media (max-width: 839.9px) {
+  .area__map.--mb {
+    display: block;
+    width: min(100%, 20rem);
+  }
+}
+@media (min-width: 840px) {
+  .area__map.--lg {
+    display: block;
+    width: min(100%, 48rem);
+  }
+}
+.area__map svg .cls-1 {
+  fill: #ffffff;
+  transition: all 0.25s ease-in-out;
+}
+.cls-0:hover .cls-1 {
+  fill: #ee7a7a;
+}
+
+.area__map svg .cls-2 {
+  fill: #595757;
+  transition: all 0.25s ease-in-out;
+}
+.cls-0:hover .cls-2 {
+  fill: #ffffff;
 }

@@ -94,7 +94,7 @@
     right: 0;
     z-index: 10;
     display: block;
-    width: 24rem;
+    width: min(87.5%, 24rem);
     height: 3rem;
     margin: auto;
     border: 2px solid $pink;
