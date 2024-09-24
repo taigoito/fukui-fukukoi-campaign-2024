@@ -61,4 +61,33 @@
       }
     }
   }
+
+  &__textbox {
+    display: none;
+
+    @media (min-width: $breakpointSm) {
+      position: absolute;
+      top: 12rem;
+      left: 5%;
+      display: block;
+      width: 12rem;
+      height: 12rem;
+      padding: 1.75rem;
+      background: url("./assets/circularTextBox.svg") no-repeat center center / contain scroll;
+      font-size: 0.8rem;
+      text-align: justify;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @media (min-width: $breakpointSm) {  
+      position: absolute;
+      bottom: 3rem;
+      right: 2.5%;
+      display: block;
+      width: 42.5%;
+    }
+  }
 }
