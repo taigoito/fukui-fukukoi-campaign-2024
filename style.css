@@ -211,7 +211,7 @@ button, input, select, textarea {
   border-radius: 1.5rem;
   background-color: #ffffff;
   color: #ee7a7a;
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 3rem;
   text-align: center;
   transition: all 0.25s ease-in-out;
@@ -435,4 +435,68 @@ button, input, select, textarea {
 }
 .project__image.--num_4 {
   flex: 0 1 30%;
+}
+.project__button {
+  position: absolute;
+  top: calc(100% + 1.5rem);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  width: 24rem;
+  height: 6rem;
+  margin: auto;
+  padding-top: 1rem;
+  border: 2px solid #ee7a7a;
+  border-radius: 3.75rem;
+  background-color: #ffffff;
+  color: #ee7a7a;
+  font-size: 1rem;
+  line-height: initial;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+}
+.project__button span {
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+.project__button:hover {
+  background-color: #ee7a7a;
+  color: #ffffff;
+}
+.project__button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 1.125rem;
+  bottom: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: auto;
+  border-radius: 50%;
+  background: url("./assets/chevron-down.svg") no-repeat center center/contain scroll;
+}
+.project__em {
+  position: relative;
+  z-index: 0;
+  font-style: normal;
+}
+.project__em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 6em;
+  height: 0.5em;
+  background-color: #f5fd24;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+.project__button:hover .project__em::after {
+  opacity: 0;
+}
+
+.project__em strong {
+  transform: scaleY(1.5);
 }
