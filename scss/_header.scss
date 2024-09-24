@@ -4,9 +4,11 @@
 
 .header {
   position: relative;
+  width: 100%;
+  aspect-ratio: 0.4;
 
   @media (min-width: $breakpointSm) {
-    width: 100%;
+    aspect-ratio: initial;
     height: 100vh;
   }
   
