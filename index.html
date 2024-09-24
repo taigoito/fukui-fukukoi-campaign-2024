@@ -11,15 +11,19 @@
     <link rel="icon" href="./favicon.ico">
   </head>
   <body>
-    <header id="header" class="header">
-      <h1 class="header__mainVisual">
+    <div class="mainVisual">
+      <h1 class="mainVisual__image">
         <img src="./assets/mainVisual.png" alt="福井県の新婚世帯を応援します 結婚新生活支援事業/早婚夫婦支援事業">
       </h1>
+    </div>
+    <header id="header" class="header">
       <div class="header__title">
         <span class="header__maintitle">福井県の新婚世帯を応援します</span>
         <span class="header__subtitle">結婚新生活支援事業/早婚夫婦支援事業</span>
       </div>
-      <a class="header__button" href="#">詳細は各市町ホームページへ</a>
+      <div class="header__buttonWrap">
+        <a class="header__button" href="#">詳細は各市町ホームページへ</a>
+      </div>
     </header>
     <section class="intro">
       <div class="intro__inner">
@@ -53,9 +57,11 @@
           <p class="intro__pickupLarge">そんな新婚世帯の方を対象に<em class="intro__em">福井県と市町</em>が応援！</p>
         </div>
       </div>
-      <figure class="intro__catch">
-        <img src="./assets/catch.png">
-      </figure>
+      <div class="intro__catchWrap">
+        <figure class="intro__catch">
+          <img src="./assets/catch.png">
+        </figure>
+      </div>
     </section>
     <section class="project --num_1">
       <div class="project__inner">
@@ -108,10 +114,12 @@
           <figure class="project__image --num_4"><img src="./assets/illust_05.png"></figure>
         </div>
       </div>
-      <a class="project__button" href="#">
-        <span>合わせて<em class="project__em">最大<strong>100</strong>万円！</em></span>
-        <br>詳細は各市町ホームページへ
-      </a>
+      <div class="project__buttonWrap">
+        <a class="project__button" href="#">
+          <span>合わせて<em class="project__em">最大<strong>100</strong>万円！</em></span>
+          <br>詳細は各市町ホームページへ
+        </a>
+      </div>
     </section>
     <section class="review">
       <div class="review__inner">
@@ -566,5 +574,14 @@
         </div>
       </div>
     </section>
+    <footer id="footer" class="footer">
+      <div class="footer__inner">
+        <p class="footer__largeText">福井県の新婚世帯を応援します</p>
+        <p class="footer__smallText">結婚新生活支援事業/早婚夫婦支援事業</p>
+        <div class="footer__backToTop">
+          <a href="#header"><img src="./assets/backToTop.svg"></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

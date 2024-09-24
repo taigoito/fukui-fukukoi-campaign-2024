@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.155" y1="0.241" x2="0.84" y2="0.829" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f7833f"/>
+      <stop offset="1" stop-color="#43cbe3"/>
+    </linearGradient>
+  </defs>
+  <g id="グループ_4658" data-name="グループ 4658" transform="translate(-1932.991 -4158.99)">
+    <path id="パス_9294" data-name="パス 9294" d="M27,0A27,27,0,1,1,0,27,27,27,0,0,1,27,0Z" transform="translate(1932.991 4158.991)" fill="url(#linear-gradient)"/>
+    <g id="arrow" transform="translate(1954.296 4189.047) rotate(-90)">
+      <g id="arrow-2" data-name="arrow">
+        <path id="arrow-3" data-name="arrow" d="M1.426,0,0,1.494,4.277,5.975,0,10.455l1.426,1.493,5.7-5.974Z" fill="#fff"/>
+      </g>
+      <path id="Color_Overlay" data-name="Color Overlay" d="M0,10.456,4.278,5.975,0,1.495,1.425,0l5.7,5.975-5.7,5.975Z" transform="translate(0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -3,12 +3,14 @@
  */
 
 .review {
-  @extend %__section;
+  position: relative;
+  padding-top: 0.75rem;
   display: none;
 
   @media (min-width: $breakpointSm) {
     display: block;
-    margin-top: 6rem;
+    margin-top: 7.5rem;
+    background-color: $white;
   }
 
   &__inner {

@@ -1,0 +1,62 @@
+/**
+ * Main Visual
+ */
+
+.mainVisual {
+  width: 100%;
+  aspect-ratio: 0.4;
+  background: url("./assets/bg_mb.jpg") no-repeat center center / cover scroll;
+
+  @media (min-width: $breakpointSm) {
+    position: fixed;
+    height: 100vh;
+    aspect-ratio: initial;
+    background-image: url("./assets/bg_main.jpg");
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      aspect-ratio: 20;
+      background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
+    }
+  
+    &::before {
+      top: -1px;
+      left: 0;
+      transform: rotate(180deg);
+    }
+  
+    &::after {
+      right: 0;
+      bottom: -1px;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @media (min-width: $breakpointSm) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      height: min(calc(100% - 6rem), 36rem);
+      margin: auto;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: auto;
+
+      @media (min-width: $breakpointLg) {
+        width: auto;
+        height: 100%;
+      }
+    }
+  }
+}
