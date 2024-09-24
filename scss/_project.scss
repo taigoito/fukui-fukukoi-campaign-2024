@@ -1,0 +1,116 @@
+/**
+ * Project
+ */
+
+.project {
+  @extend %__section;
+  @extend %__cover;
+  display: none;
+
+  @media (min-width: $breakpointSm) {
+    display: block;
+    width: 100%;
+
+    &.--num_1 {
+      margin-top: 12rem;
+    }
+  }
+
+  &__inner {
+    @extend %__inner;
+  }
+
+  &__heading {
+    @extend %__heading;
+  }
+
+  &__headingInner {
+    @extend %__headingInner;
+
+    img {
+      display: inline-block;
+      width: 4.5rem;
+      margin-top: -0.5rem;
+      margin-right: 0.75rem;
+    }
+  }
+
+  &__target {
+    display: flex;
+    font-size: 0.9rem;
+
+    p:nth-child(1) {
+      margin: 0;
+      padding: 0.5rem;
+      border-radius: 6px 0 0 6px;
+      background-color: $pink;
+      color: $white;
+      text-align: center;
+    }
+
+    p:nth-child(2) {
+      margin: 0;
+      padding: 0.25rem 1rem;
+      border-radius: 0 6px 6px 0;
+      background-color: $white;
+      color: $pink;
+
+      span {
+        font-size: 1.2rem;
+      }
+
+      @at-root .project.--num_2 & {
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+
+  &__detail {
+    margin-top: 0.75rem;
+
+    p {
+      margin: 0.25rem 0;
+    }
+  }
+
+  &__amount {
+    position: absolute;
+    top: 9rem;
+    right: 6rem;
+    z-index: 20;
+    width: 9rem;
+
+    @media (max-width: $breakpointLg - 0.1) {
+      @at-root .project.--num_1 & {
+        top: 15rem;
+        right: 3rem;
+      }
+    }
+  }
+
+  &__images {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  &__image {
+    &.--num_1 {
+      flex: 0 1 35%;
+    }
+
+    &.--num_2 {
+      flex: 0 1 30%;
+    }
+
+    &.--num_3 {
+      flex: 0 1 40%;
+    }
+
+    &.--num_4 {
+      flex: 0 1 30%;
+    }
+  }
+}

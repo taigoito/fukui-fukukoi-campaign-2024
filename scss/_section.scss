@@ -3,11 +3,11 @@
  */
 
 %__section {
+  position: relative;
   padding: 3rem 0;
 }
 
 %__cover {
-  position: relative;
   background: url("./assets/bg_sub.jpg") no-repeat center center / cover scroll;
 
   &::before, &::after {
@@ -28,6 +28,13 @@
     right: 0;
     bottom: -1px;
   }
+}
+
+%__inner {
+  position: relative;
+  width: min(100%, 63rem); // 1260px 左右30pxずつpaddingで、内寸1200px
+  margin: auto;
+  padding: 0 clamp(0.75rem, 2.5%, 1.5rem) 3rem;
 }
 
 %__heading {
@@ -60,10 +67,4 @@
     right: 0;
     background-color: $blue;
   }
-}
-
-%__inner {
-  width: min(100%, 63rem); // 1260px 左右30pxずつpaddingで、内寸1200px
-  margin: auto;
-  padding: 0 clamp(0.75rem, 2.5%, 1.5rem);
 }
