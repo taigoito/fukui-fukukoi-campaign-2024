@@ -5,10 +5,12 @@
 .area {
   @extend %__section;
   @extend %__cover;
+  margin-top: 6rem;
+  padding-top: 6rem;
 
-  @media (max-width: $breakpointSm - 0.1) {
-    margin-top: 6rem;
-    padding-top: 6rem;
+  @media (min-width: $breakpointSm) {
+    margin-top: 0;
+    padding-top: 3rem;
   }
 
   &__inner {

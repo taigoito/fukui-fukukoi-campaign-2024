@@ -57,9 +57,10 @@
       width: 100%;
       aspect-ratio: 20;
       background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
+      transform: scaleY(2.5);
 
-      @media (max-width: $breakpointSm - 0.1) {
-        transform: scaleY(2.5);
+      @media (min-width: $breakpointSm) {
+        transform: initial;
       }
     }
   }

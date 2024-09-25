@@ -18,10 +18,10 @@
     width: 100%;
     aspect-ratio: 20;
     background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
-    transform: rotate(180deg);
+    transform: scaleY(2.5) rotate(180deg);
 
-    @media (max-width: $breakpointSm - 0.1) {
-      transform: scaleY(2.5) rotate(180deg);
+    @media (min-width: $breakpointSm) {
+      transform: rotate(180deg);
     }
   }
 

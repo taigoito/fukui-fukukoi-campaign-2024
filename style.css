@@ -59,12 +59,13 @@ button, input, select, textarea {
 }
 
 .area, .project, .intro {
-  background: url("./assets/bg_sub.jpg") no-repeat center center/cover scroll;
+  aspect-ratio: 0.4;
+  background: url("./assets/bg_mb_sub.jpg") no-repeat center center/cover scroll;
 }
-@media (max-width: 839.9px) {
+@media (min-width: 840px) {
   .area, .project, .intro {
-    aspect-ratio: 0.4;
-    background: url("./assets/bg_mb_sub.jpg") no-repeat center center/cover scroll;
+    aspect-ratio: initial;
+    background-image: url("./assets/bg_sub.jpg");
   }
 }
 .area::before, .project::before, .intro::before, .area::after, .project::after, .intro::after {
@@ -238,10 +239,11 @@ button, input, select, textarea {
   width: 100%;
   aspect-ratio: 20;
   background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
+  transform: scaleY(2.5);
 }
-@media (max-width: 839.9px) {
+@media (min-width: 840px) {
   .header__buttonWrap::after {
-    transform: scaleY(2.5);
+    transform: initial;
   }
 }
 .header__button {
@@ -654,10 +656,14 @@ button, input, select, textarea {
 /**
  * Area
  */
-@media (max-width: 839.9px) {
+.area {
+  margin-top: 6rem;
+  padding-top: 6rem;
+}
+@media (min-width: 840px) {
   .area {
-    margin-top: 6rem;
-    padding-top: 6rem;
+    margin-top: 0;
+    padding-top: 3rem;
   }
 }
 .area__map {
@@ -742,11 +748,11 @@ button, input, select, textarea {
   width: 100%;
   aspect-ratio: 20;
   background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
-  transform: rotate(180deg);
+  transform: scaleY(2.5) rotate(180deg);
 }
-@media (max-width: 839.9px) {
+@media (min-width: 840px) {
   .footer::before {
-    transform: scaleY(2.5) rotate(180deg);
+    transform: rotate(180deg);
   }
 }
 .footer__inner {

@@ -8,11 +8,12 @@
 }
 
 %__cover {
-  background: url("./assets/bg_sub.jpg") no-repeat center center / cover scroll;
+  aspect-ratio: 0.4;
+  background: url("./assets/bg_mb_sub.jpg") no-repeat center center / cover scroll;
 
-  @media (max-width: $breakpointSm - 0.1) {
-    aspect-ratio: 0.4;
-    background: url("./assets/bg_mb_sub.jpg") no-repeat center center / cover scroll;
+  @media (min-width: $breakpointSm) {
+    aspect-ratio: initial;
+    background-image: url("./assets/bg_sub.jpg")
   }
 
   &::before, &::after {
