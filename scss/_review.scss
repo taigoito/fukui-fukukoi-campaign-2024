@@ -4,14 +4,9 @@
 
 .review {
   position: relative;
-  padding-top: 0.75rem;
-  display: none;
-
-  @media (min-width: $breakpointSm) {
-    display: block;
-    margin-top: 7.5rem;
-    background-color: $white;
-  }
+  display: block;
+  margin-top: 12rem;
+  background-color: $white;
 
   &__inner {
     @extend %__inner;
@@ -27,14 +22,21 @@
 
   &__case {
     position: relative;
-    width: 87.5%;
+    width: 100%;
     margin-bottom: 3rem;
-    padding: 0.75rem 0 1.5rem;
+    padding: 0.75rem 0;
     border: 1px solid $blue;
 
+    @media (min-width: $breakpointLg) {
+      width: 87.5%;
+    }
+
     @at-root .review__case:nth-of-type(even) {
-      margin-left: 12.5%;
       border-color: $red;
+
+      @media (min-width: $breakpointLg) {
+        margin-left: 12.5%;
+      }
     }
   }
 
@@ -50,11 +52,11 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
   }
 
   &__featured {
-    flex: 0 0 30%;
+    flex: 0 1 15rem;
   }
 
   &__image {
@@ -81,7 +83,8 @@
   }
 
   &__voice {
-    flex: 0 0 40%;
+    flex: 0 1 20rem;
+    padding: 0 0.75rem;
     color: $blue;
     line-height: 1.8;
 
@@ -96,6 +99,7 @@
   }
 
   &__amount {
-    flex: 0 0 15%;
+    flex: 0 1 7.5rem;
+    padding: 0 0.75rem;
   }
 }

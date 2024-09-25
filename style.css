@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Normarize
  */
@@ -52,6 +53,10 @@ button, input, select, textarea {
 
 /**
  * Section
+ * セクション共通の背景、inner、見出しを定義
+ * 背景は、Mdサイズ時にグラデーションから画像に切り替え
+ * 背景の波形は、Smサイズ時に変形
+ * 見出しは、Smサイズ時のフォントサイズを増大
  */
 .area, .project, .intro {
   position: relative;
@@ -59,13 +64,11 @@ button, input, select, textarea {
 }
 
 .area, .project, .intro {
-  aspect-ratio: 0.4;
-  background: url("./assets/bg_mb_sub.jpg") no-repeat center center/cover scroll;
+  background: linear-gradient(135deg, #efeb64, #a3daf6);
 }
-@media (min-width: 840px) {
+@media (min-width: 945px) {
   .area, .project, .intro {
-    aspect-ratio: initial;
-    background-image: url("./assets/bg_sub.jpg");
+    background: url("./assets/bg_sub.jpg") no-repeat center center/cover scroll;
   }
 }
 .area::before, .project::before, .intro::before, .area::after, .project::after, .intro::after {
@@ -76,13 +79,24 @@ button, input, select, textarea {
   background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
 }
 .area::before, .project::before, .intro::before {
-  top: -1px;
+  top: 0;
   left: 0;
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateY(-0.5rem) scaleY(2.5);
+}
+@media (min-width: 630px) {
+  .area::before, .project::before, .intro::before {
+    transform: rotate(180deg);
+  }
 }
 .area::after, .project::after, .intro::after {
   right: 0;
-  bottom: -1px;
+  bottom: 0;
+  transform: translateY(-0.5rem) scaleY(2.5);
+}
+@media (min-width: 630px) {
+  .area::after, .project::after, .intro::after {
+    transform: initial;
+  }
 }
 
 .area__inner, .review__inner, .project__inner, .intro__inner {
@@ -103,7 +117,12 @@ button, input, select, textarea {
   padding-bottom: 1rem;
   color: #595757;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 630px) {
+  .area__headingInner, .review__headingInner, .project__headingInner, .intro__headingInner {
+    font-size: 3rem;
+  }
 }
 .area__headingInner::before, .review__headingInner::before, .project__headingInner::before, .intro__headingInner::before, .area__headingInner::after, .review__headingInner::after, .project__headingInner::after, .intro__headingInner::after {
   content: "";
@@ -123,51 +142,65 @@ button, input, select, textarea {
 
 /**
  * Main Visual
+ * 背景要素と画像要素から構成
+ * #headerに重ねるため、両要素とも絶対配置し、aspect-ratioで高さを固定
+ * BPは2点で、Smサイズ時に画像を切り替え、Lgサイズ時に高さの上限を固定する
  */
 .mainVisual {
   position: absolute;
   width: 100%;
-  aspect-ratio: 0.4;
-  background: url("./assets/bg_mb.jpg") no-repeat center center/cover scroll;
+  aspect-ratio: 0.5;
+  background: linear-gradient(135deg, #efeb64, #a3daf6);
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
+  .mainVisual {
+    aspect-ratio: 1.5;
+    background: url("./assets/bg_main.jpg") no-repeat center center/cover scroll;
+  }
+}
+@media (min-width: 1260px) {
   .mainVisual {
     position: fixed;
     height: 100vh;
     aspect-ratio: initial;
-    background-image: url("./assets/bg_main.jpg");
   }
-  .mainVisual::before, .mainVisual::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    aspect-ratio: 20;
-    background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
-  }
+}
+.mainVisual::before, .mainVisual::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 20;
+  background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
+}
+.mainVisual::before {
+  top: 0;
+  left: 0;
+  transform: rotate(180deg) translateY(-0.5rem) scaleY(2.5);
+}
+@media (min-width: 630px) {
   .mainVisual::before {
-    top: -1px;
-    left: 0;
     transform: rotate(180deg);
   }
+}
+.mainVisual::after {
+  right: 0;
+  bottom: 0;
+  transform: translateY(-0.5rem) scaleY(2.5);
+}
+@media (min-width: 630px) {
   .mainVisual::after {
-    right: 0;
-    bottom: -1px;
+    transform: initial;
   }
 }
 .mainVisual__image {
-  display: none;
-}
-@media (min-width: 840px) {
-  .mainVisual__image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    height: min(100% - 6rem, 36rem);
-    margin: auto;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  height: 100%;
+  margin: auto;
 }
 .mainVisual__image img {
   display: block;
@@ -184,13 +217,20 @@ button, input, select, textarea {
 
 /**
  * Header
+ * タイトルとボタンを含むが、#mainVisualに重ねる空白のコンテナとして役目を担う
+ * 高さは100vhだが、絶対配置のボタンエリアが6rem追加される
  */
 .header {
   position: relative;
   width: 100%;
-  aspect-ratio: 0.4;
+  aspect-ratio: 0.5;
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
+  .header {
+    aspect-ratio: 1.5;
+  }
+}
+@media (min-width: 945px) {
   .header {
     aspect-ratio: initial;
     height: 100vh;
@@ -199,7 +239,7 @@ button, input, select, textarea {
 .header__title {
   display: none;
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
   .header__title {
     position: absolute;
     top: 0;
@@ -235,13 +275,13 @@ button, input, select, textarea {
   content: "";
   position: absolute;
   right: 0;
-  bottom: calc(100% - 1px);
+  bottom: 100%;
   width: 100%;
   aspect-ratio: 20;
   background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
-  transform: scaleY(2.5);
+  transform: translateY(-0.5rem) scaleY(2.5);
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
   .header__buttonWrap::after {
     transform: initial;
   }
@@ -285,27 +325,38 @@ button, input, select, textarea {
 
 /**
  * Intro
+ * 画面幅によって吹き出しの向きを調整
+ * pickup要素の装飾はMdサイズから
+ * catch要素を最後部に追加 (高さ9rem)
  */
 .intro {
-  display: none;
-}
-@media (min-width: 840px) {
-  .intro {
-    display: block;
-    width: 100%;
-    margin-top: 6rem;
-  }
+  margin-top: 6rem;
 }
 .intro__decorated {
-  font-size: 2.25rem;
+  font-size: 1.125rem;
+}
+@media (min-width: 630px) {
+  .intro__decorated {
+    font-size: 2.25rem;
+  }
 }
 .intro__decorated::before {
   content: "\\";
-  font-size: 3rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 630px) {
+  .intro__decorated::before {
+    font-size: 3rem;
+  }
 }
 .intro__decorated::after {
   content: "/";
-  font-size: 3rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 630px) {
+  .intro__decorated::after {
+    font-size: 3rem;
+  }
 }
 .intro__worries {
   display: flex;
@@ -321,35 +372,47 @@ button, input, select, textarea {
   flex-flow: row-reverse wrap;
 }
 .intro__illust.--num_1 {
-  flex: 0 1 30%;
+  flex: 0 1 18rem;
 }
 .intro__illust.--num_2 {
-  flex: 0 1 25%;
+  flex: 0 1 18rem;
+  padding: 0 1.5rem;
 }
 .intro__text {
   position: relative;
-  flex: 0 0 24rem;
+  flex: 0 1 24rem;
   padding: 0.75rem 1.5rem 1.5rem;
   border-radius: 6px;
   background-color: #ffffff;
 }
-.intro__text.--num_1::before {
+.intro__text.--num_1::before, .intro__text.--num_2::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: -3rem;
-  margin-top: 1.5rem;
-  border: 1.5rem solid transparent;
-  border-right: 3rem solid #ffffff;
 }
-.intro__text.--num_2::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -3rem;
-  margin-top: 1.5rem;
-  border: 1.5rem solid transparent;
-  border-left: 3rem solid #ffffff;
+@media (max-width: 944.9px) {
+  .intro__text.--num_1::before, .intro__text.--num_2::before {
+    top: -3rem;
+    right: 50%;
+    margin-right: 1.5rem;
+    border: 1.5rem solid transparent;
+    border-bottom: 3rem solid #ffffff;
+  }
+}
+@media (min-width: 945px) {
+  .intro__text.--num_1::before {
+    top: 50%;
+    left: -3rem;
+    margin-top: 1.5rem;
+    border: 1.5rem solid transparent;
+    border-right: 3rem solid #ffffff;
+  }
+  .intro__text.--num_2::before {
+    top: 50%;
+    right: -3rem;
+    margin-top: 1.5rem;
+    border: 1.5rem solid transparent;
+    border-left: 3rem solid #ffffff;
+  }
 }
 .intro__largeText {
   font-size: 1.2rem;
@@ -358,13 +421,21 @@ button, input, select, textarea {
   font-size: 0.8rem;
 }
 .intro__pickup {
-  height: 7.5rem;
-  margin-top: -0.75rem;
-  padding-top: 2.025rem;
-  background: url("./assets/textPickUp.svg") no-repeat 50% 50%;
-  background-size: auto 7.5rem;
+  margin-top: 3rem;
+  padding: 0.75rem 0;
+  border-radius: 6px;
+  background-color: #ffffff;
   color: #ee7a7a;
   text-align: center;
+}
+@media (min-width: 945px) {
+  .intro__pickup {
+    height: 7.5rem;
+    margin-top: -0.75rem;
+    padding: 2.025rem 0 0;
+    background: url("./assets/textPickUp.svg") no-repeat 50% 50%;
+    background-size: auto 7.5rem;
+  }
 }
 .intro__pickupSmall {
   margin: 0;
@@ -397,7 +468,7 @@ button, input, select, textarea {
   z-index: 10;
   display: block;
   width: 100%;
-  height: 7.5rem;
+  height: 9rem;
   background-color: #ffffff;
 }
 .intro__catch {
@@ -408,34 +479,57 @@ button, input, select, textarea {
   bottom: 0;
   z-index: 11;
   display: block;
-  width: 18rem;
+  width: 15rem;
+  height: 6rem;
   margin: auto;
+}
+@media (min-width: 630px) {
+  .intro__catch {
+    width: 18.75rem;
+    height: 7.5rem;
+  }
 }
 
 /**
  * Project
+ * amount要素をLgサイズ時に絶対配置に切り替える
+ * button要素を最後部に追加 (高さ12rem)
  */
 .project {
-  display: none;
+  display: block;
 }
-@media (min-width: 840px) {
-  .project {
-    display: block;
-    width: 100%;
-  }
-  .project.--num_1 {
-    margin-top: 7.5rem;
-  }
+.project.--num_1 {
+  margin-top: 9rem;
 }
 .project__headingInner img {
   display: inline-block;
-  width: 6rem;
-  margin-top: -1.125rem;
-  margin-right: 0.75rem;
+  width: 3rem;
+  margin-top: -0.5625rem;
+  margin-right: 0.375rem;
+}
+@media (min-width: 630px) {
+  .project__headingInner img {
+    width: 6rem;
+    margin-top: -1.125rem;
+    margin-right: 0.75rem;
+  }
+}
+.project__summary, .project__table {
+  font-size: 0.8rem;
+}
+@media (min-width: 630px) {
+  .project__summary, .project__table {
+    font-size: 1rem;
+  }
 }
 .project__target {
   display: flex;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
+}
+@media (min-width: 630px) {
+  .project__target {
+    font-size: 0.9rem;
+  }
 }
 .project__target p:nth-child(1) {
   margin: 0;
@@ -453,29 +547,39 @@ button, input, select, textarea {
   color: #ee7a7a;
 }
 .project__target p:nth-child(2) span {
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 .project.--num_2 .project__target p:nth-child(2) {
   padding: 0.75rem 1rem;
 }
 
-.project__detail {
-  margin-top: 0.75rem;
+.project__table {
+  width: 100%;
+  margin-top: 1em;
+  overflow-x: auto;
 }
-.project__detail p {
-  margin: 0.25rem 0;
+.project__table table, .project__table p {
+  width: 30rem;
+}
+@media (min-width: 630px) {
+  .project__table table, .project__table p {
+    width: 36rem;
+  }
+}
+.project__table table td, .project__table p td {
+  vertical-align: top;
 }
 .project__amount {
-  position: absolute;
-  top: 10.5rem;
-  right: 6rem;
-  z-index: 20;
-  width: 9rem;
+  width: 6rem;
+  margin: 1.5rem auto;
 }
-@media (max-width: 1259.9px) {
-  .project.--num_1 .project__amount {
-    top: 15rem;
-    right: 3rem;
+@media (min-width: 1260px) {
+  .project__amount {
+    position: absolute;
+    top: 10.5rem;
+    right: 6rem;
+    z-index: 20;
+    width: 9rem;
   }
 }
 .project__images {
@@ -503,7 +607,7 @@ button, input, select, textarea {
   left: 0;
   z-index: 10;
   width: 100%;
-  height: 7.5rem;
+  height: 12rem;
   background-color: #ffffff;
 }
 .project__button {
@@ -514,22 +618,30 @@ button, input, select, textarea {
   bottom: 0;
   z-index: 11;
   display: block;
-  width: 24rem;
-  height: 6rem;
+  width: 18rem;
+  height: 4.5rem;
   margin: auto;
   padding-top: 1rem;
   border: 2px solid #ee7a7a;
-  border-radius: 3.75rem;
+  border-radius: 2.5rem;
   background-color: #ffffff;
   color: #ee7a7a;
-  font-size: 1rem;
+  font-size: 0.75rem;
   line-height: initial;
   text-align: center;
   transition: all 0.25s ease-in-out;
 }
+@media (min-width: 630px) {
+  .project__button {
+    width: 24rem;
+    height: 6rem;
+    border-radius: 3.75rem;
+    font-size: 1rem;
+  }
+}
 .project__button span {
   font-weight: 700;
-  font-size: 1.75rem;
+  font-size: 1.75em;
 }
 .project__button:hover {
   background-color: #ee7a7a;
@@ -577,26 +689,29 @@ button, input, select, textarea {
  */
 .review {
   position: relative;
-  padding-top: 0.75rem;
-  display: none;
-}
-@media (min-width: 840px) {
-  .review {
-    display: block;
-    margin-top: 7.5rem;
-    background-color: #ffffff;
-  }
+  display: block;
+  margin-top: 12rem;
+  background-color: #ffffff;
 }
 .review__case {
   position: relative;
-  width: 87.5%;
+  width: 100%;
   margin-bottom: 3rem;
-  padding: 0.75rem 0 1.5rem;
+  padding: 0.75rem 0;
   border: 1px solid #7ebfd8;
 }
+@media (min-width: 1260px) {
+  .review__case {
+    width: 87.5%;
+  }
+}
 .review__case:nth-of-type(even) {
-  margin-left: 12.5%;
   border-color: #ed6a1f;
+}
+@media (min-width: 1260px) {
+  .review__case:nth-of-type(even) {
+    margin-left: 12.5%;
+  }
 }
 
 .review__num {
@@ -610,10 +725,10 @@ button, input, select, textarea {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: center;
 }
 .review__featured {
-  flex: 0 0 30%;
+  flex: 0 1 15rem;
 }
 .review__image {
   display: block;
@@ -637,7 +752,8 @@ button, input, select, textarea {
 }
 
 .review__voice {
-  flex: 0 0 40%;
+  flex: 0 1 20rem;
+  padding: 0 0.75rem;
   color: #7ebfd8;
   line-height: 1.8;
 }
@@ -650,33 +766,24 @@ button, input, select, textarea {
   text-align: justify;
 }
 .review__amount {
-  flex: 0 0 15%;
+  flex: 0 1 7.5rem;
+  padding: 0 0.75rem;
 }
 
 /**
  * Area
  */
-.area {
-  margin-top: 6rem;
-  padding-top: 6rem;
-}
-@media (min-width: 840px) {
-  .area {
-    margin-top: 0;
-    padding-top: 3rem;
-  }
-}
 .area__map {
   display: none;
   margin: auto;
 }
-@media (max-width: 839.9px) {
+@media (max-width: 629.9px) {
   .area__map.--mb {
     display: block;
     width: min(100%, 20rem);
   }
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
   .area__map.--lg {
     display: block;
     width: min(100%, 48rem);
@@ -701,7 +808,7 @@ button, input, select, textarea {
 .area__textbox {
   display: none;
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
   .area__textbox {
     position: absolute;
     top: 12rem;
@@ -718,7 +825,7 @@ button, input, select, textarea {
 .area__image {
   display: none;
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
   .area__image {
     position: absolute;
     bottom: 3rem;
@@ -734,7 +841,7 @@ button, input, select, textarea {
 .footer {
   position: relative;
 }
-@media (min-width: 840px) {
+@media (min-width: 1260px) {
   .footer {
     width: 100%;
     height: 100vh;
@@ -748,9 +855,9 @@ button, input, select, textarea {
   width: 100%;
   aspect-ratio: 20;
   background: url("./assets/wave.svg") no-repeat 0 0/cover scroll;
-  transform: scaleY(2.5) rotate(180deg);
+  transform: rotate(180deg) translateY(-0.5rem) scaleY(2.5);
 }
-@media (min-width: 840px) {
+@media (min-width: 630px) {
   .footer::before {
     transform: rotate(180deg);
   }

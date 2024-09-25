@@ -13,7 +13,10 @@
   <body>
     <div class="mainVisual">
       <h1 class="mainVisual__image">
-        <img src="./assets/mainVisual.png" alt="福井県の新婚世帯を応援します 結婚新生活支援事業/早婚夫婦支援事業">
+        <picture>
+          <source srcset="./assets/mainVisual.png" media="(min-width:630px)" type="image/png">
+          <img src="./assets/mainVisual_mb.png" alt="福井県の新婚世帯を応援します 結婚新生活支援事業/早婚夫婦支援事業">
+        </picture>
       </h1>
     </div>
     <header id="header" class="header">
@@ -75,9 +78,17 @@
           <p>補助対象<br>世帯</p>
           <p><span>夫婦ともに婚姻日における年齢が39歳以下の新規に婚姻した世帯</span><br>（世帯所得500万円未満）</p>
         </div>
-        <div class="project__detail">
-          <p>対象経費：住宅取得費用、住宅賃借費用、リフォーム費用、引越費用</p>
-          <p>補助上限額：60万円（夫婦とも29歳以下の場合のみ）または30万円</p>
+        <div class="project__table">
+          <table>
+            <tr>
+              <td>対象経費：</td>
+              <td>住宅取得費用、住宅賃借費用、リフォーム費用、引越費用</td>
+            </tr>
+            <tr>
+              <td>補助上限額：</td>
+              <td>60万円（夫婦とも29歳以下の場合のみ）または30万円</td>
+            </tr>
+          </table>
           <p>※実施市町により、対象経費や補助上限額が異なります。</p>
         </div>
         <div class="project__amount">
@@ -101,10 +112,17 @@
           <p>補助対象<br>世帯</p>
           <p><span>結婚新生活支援事業の対象世帯</span></p>
         </div>
-        <div class="project__detail">
-          <p>対象経費：制限なし</p>
-          <p>補助上限額：（夫婦どちらかが25歳以下の場合）40万円</p>
-          <p>　　　　　　（夫婦どちらかが26〜29歳の場合）30万円</p>
+        <div class="project__table">
+          <table>
+            <tr>
+              <td>対象経費：</td>
+              <td>制限なし</td>
+            </tr>
+            <tr>
+              <td>補助上限額：</td>
+              <td>（夫婦どちらかが25歳以下の場合）40万円<br>（夫婦どちらかが26〜29歳の場合）30万円</td>
+            </tr>
+          </table>
         </div>
         <div class="project__amount">
           <img src="./assets/max40.png">

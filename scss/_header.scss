@@ -1,13 +1,19 @@
 /**
  * Header
+ * タイトルとボタンを含むが、#mainVisualに重ねる空白のコンテナとして役目を担う
+ * 高さは100vhだが、絶対配置のボタンエリアが6rem追加される
  */
 
 .header {
   position: relative;
   width: 100%;
-  aspect-ratio: 0.4;
+  aspect-ratio: 0.5;
 
   @media (min-width: $breakpointSm) {
+    aspect-ratio: 1.5;
+  }
+
+  @media (min-width: $breakpointMd) {
     aspect-ratio: initial;
     height: 100vh;
   }
@@ -53,11 +59,11 @@
       content: "";
       position: absolute;
       right: 0;
-      bottom: calc(100% - 1px);
+      bottom: 100%;
       width: 100%;
       aspect-ratio: 20;
       background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
-      transform: scaleY(2.5);
+      transform: translateY(-0.5rem) scaleY(2.5);
 
       @media (min-width: $breakpointSm) {
         transform: initial;

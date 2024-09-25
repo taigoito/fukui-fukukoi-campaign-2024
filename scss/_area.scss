@@ -5,13 +5,6 @@
 .area {
   @extend %__section;
   @extend %__cover;
-  margin-top: 6rem;
-  padding-top: 6rem;
-
-  @media (min-width: $breakpointSm) {
-    margin-top: 0;
-    padding-top: 3rem;
-  }
 
   &__inner {
     @extend %__inner;

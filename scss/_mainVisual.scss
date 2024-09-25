@@ -1,52 +1,64 @@
 /**
  * Main Visual
+ * 背景要素と画像要素から構成
+ * #headerに重ねるため、両要素とも絶対配置し、aspect-ratioで高さを固定
+ * BPは2点で、Smサイズ時に画像を切り替え、Lgサイズ時に高さの上限を固定する
  */
 
 .mainVisual {
   position: absolute;
   width: 100%;
-  aspect-ratio: 0.4;
-  background: url("./assets/bg_mb.jpg") no-repeat center center / cover scroll;
+  aspect-ratio: 0.5;
+  background: linear-gradient(135deg, #efeb64, #a3daf6);
 
   @media (min-width: $breakpointSm) {
+    aspect-ratio: 1.5;
+    background: url("./assets/bg_main.jpg") no-repeat center center / cover scroll;
+  }
+
+  @media (min-width: $breakpointLg) {
     position: fixed;
     height: 100vh;
     aspect-ratio: initial;
-    background-image: url("./assets/bg_main.jpg");
+  }
 
-    &::before, &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      aspect-ratio: 20;
-      background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
-    }
-  
-    &::before {
-      top: -1px;
-      left: 0;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 20;
+    background: url("./assets/wave.svg") no-repeat 0 0 / cover scroll;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    transform: rotate(180deg) translateY(-0.5rem) scaleY(2.5);
+
+    @media (min-width: $breakpointSm) {
       transform: rotate(180deg);
     }
-  
-    &::after {
-      right: 0;
-      bottom: -1px;
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    transform: translateY(-0.5rem) scaleY(2.5);
+
+    @media (min-width: $breakpointSm) {
+      transform: initial;
     }
   }
 
   &__image {
-    display: none;
-
-    @media (min-width: $breakpointSm) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: block;
-      height: min(calc(100% - 6rem), 36rem);
-      margin: auto;
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 100%;
+    margin: auto;
 
     img {
       display: block;

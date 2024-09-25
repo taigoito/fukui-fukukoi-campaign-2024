@@ -1,5 +1,9 @@
 /**
  * Section
+ * セクション共通の背景、inner、見出しを定義
+ * 背景は、Mdサイズ時にグラデーションから画像に切り替え
+ * 背景の波形は、Smサイズ時に変形
+ * 見出しは、Smサイズ時のフォントサイズを増大
  */
 
 %__section {
@@ -8,12 +12,10 @@
 }
 
 %__cover {
-  aspect-ratio: 0.4;
-  background: url("./assets/bg_mb_sub.jpg") no-repeat center center / cover scroll;
+  background: linear-gradient(135deg, #efeb64, #a3daf6);
 
-  @media (min-width: $breakpointSm) {
-    aspect-ratio: initial;
-    background-image: url("./assets/bg_sub.jpg")
+  @media (min-width: $breakpointMd) {
+    background: url("./assets/bg_sub.jpg") no-repeat center center / cover scroll;
   }
 
   &::before, &::after {
@@ -25,14 +27,23 @@
   }
 
   &::before {
-    top: -1px;
+    top: 0;
     left: 0;
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateY(-0.5rem) scaleY(2.5);
+
+    @media (min-width: $breakpointSm) {
+      transform: rotate(180deg);
+    }
   }
 
   &::after {
     right: 0;
-    bottom: -1px;
+    bottom: 0;
+    transform: translateY(-0.5rem) scaleY(2.5);
+
+    @media (min-width: $breakpointSm) {
+      transform: initial;
+    }
   }
 }
 
@@ -54,7 +65,11 @@
   padding-bottom: 1rem;
   color: $black;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 1.5rem;
+
+  @media (min-width: $breakpointSm) {
+    font-size: 3rem;
+  }
 
   &::before, &::after {
     content: "";
